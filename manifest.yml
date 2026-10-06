@@ -1,0 +1,8 @@
+id: classisland.time-progress-bar
+name: 时间点进度条
+description: 在屏幕顶部显示当前时间点剩余时间占比的进度条，支持自定义宽度、流逝方向、颜色与显示条件。
+entranceAssembly: "ClassIsland.TimeProgressBar.dll"
+url: https://github.com/ClassIsland/ClassIsland
+apiVersion: 2.1.0.0
+version: 1.0.0.0
+author: ClassIsland

@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <RootNamespace>ClassIsland.TimeProgressBar</RootNamespace>
+    <AssemblyName>ClassIsland.TimeProgressBar</AssemblyName>
+    <CreateCipx>true</CreateCipx>
+    <!-- 2.1.1 及以上版本的 SDK 仅面向 net10.0，net8.0 插件需使用 2.1.0.*。 -->
+    <ClassIslandPluginSdkVersion>2.1.0.*</ClassIslandPluginSdkVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClassIsland.PluginSdk" Version="$(ClassIslandPluginSdkVersion)">
+      <ExcludeAssets>runtime; native</ExcludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="manifest.yml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="README.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <!--
+    ClassIsland.PluginSdk 生成校验和时默认调用 pwsh。未安装 PowerShell 7 的 Windows 主机上退回
+    Windows PowerShell，以保证插件包仍能正常生成。
+  -->
+  <Target Name="UseWindowsPowerShellForChecksum" BeforeTargets="CreateCipx" Condition="$([MSBuild]::IsOSPlatform('Windows'))">
+    <PropertyGroup>
+      <PowershellBinaryName>powershell</PowershellBinaryName>
+    </PropertyGroup>
+  </Target>
+
+</Project>

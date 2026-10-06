@@ -1,0 +1,26 @@
+<Window x:Class="ClassIsland.TimeProgressBar.Views.ProgressBarWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        mc:Ignorable="d"
+        Title="ClassIsland 时间点进度条"
+        Width="100"
+        Height="6"
+        Background="Transparent"
+        TransparencyLevelHint="Transparent"
+        SystemDecorations="None"
+        CanResize="False"
+        ShowInTaskbar="False"
+        ShowActivated="False"
+        Topmost="True"
+        WindowStartupLocation="Manual">
+    <Panel>
+        <!-- 窗口高度受系统最小窗口尺寸限制，粗细由 Border 自身高度决定 -->
+        <Border x:Name="Bar"
+                Width="0"
+                Height="6"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top" />
+    </Panel>
+</Window>
